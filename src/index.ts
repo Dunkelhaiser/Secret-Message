@@ -5,7 +5,7 @@ let form = document.querySelector("#message-form") as HTMLFormElement;
 let messageInput = document.querySelector("#message-input") as HTMLInputElement;
 
 const renderMain = () => {
-    window.location.hash = "";
+    window.location = window.location.href.split("#")[0] as (string | Location) & Location;
     container.innerHTML = `<form id="message-form">
         <h1>Secret Message</h1>
         <div class="form-field">
@@ -22,7 +22,7 @@ const renderMain = () => {
 
 const renderMessageLink = (link: string) => {
     container.innerHTML = `<h2>Share this link</h2>
-                                <span id="link">${window.location}#${link}</span>
+                                <span id="link">${window.location.href.split("#")[0]}#${link}</span>
                                 <span class="text-btn" id="return">Create new message</span>`;
     const returnBtn = document.querySelector("#return") as HTMLSpanElement;
     returnBtn.addEventListener("click", renderMain);
