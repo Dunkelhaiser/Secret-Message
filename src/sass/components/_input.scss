@@ -1,0 +1,26 @@
+input {
+    display: block;
+
+    width: 100%;
+    padding: 0.5rem 3rem;
+
+    font-size: 1.6rem;
+    color: inherit;
+
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $light-text-light;
+    outline: none;
+
+    &:focus {
+        border-bottom: 1px solid $light-text-dark;
+    }
+}
+
+input.error {
+    border-bottom: 2px solid $light-red;
+
+    &:focus {
+        border-bottom: 2px solid $light-red;
+    }
+}

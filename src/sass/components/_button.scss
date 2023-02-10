@@ -1,0 +1,25 @@
+button {
+    @include hover;
+
+    cursor: pointer;
+
+    width: 100%;
+    padding: 1.5rem 4rem;
+
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $light-foreground;
+
+    background-color: $light-blue;
+    border: none;
+    border-radius: 0.35em;
+    outline-color: $light-blue-active;
+
+    &:hover {
+        background-color: $light-blue-hover;
+    }
+
+    &:active {
+        background-color: $light-blue-active;
+    }
+}

@@ -6,6 +6,11 @@
     padding: 0;
 }
 
+*::selection {
+    color: $light-foreground;
+    background-color: $light-blue;
+}
+
 html {
     overflow: overlay;
 
@@ -14,6 +19,13 @@ html {
     color: $light-text;
 
     background-color: $light-background;
+}
+
+main {
+    @include flex(column, center, center, center, 0, nowrap);
+
+    width: 100vw;
+    min-height: 100vh;
 }
 
 input,
@@ -32,6 +44,6 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    box-shadow: 0 0 0 1000px white inset;
+    box-shadow: 0 0 0 1000px transparent inset;
     transition: background-color 5000s ease-in-out 0s;
 }
