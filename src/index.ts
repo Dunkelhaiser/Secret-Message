@@ -31,7 +31,8 @@ const renderMessageLink = (link: string) => {
 };
 
 const renderSecretMessage = () => {
-    container.innerHTML = `<h2>${atob(window.location.hash.replace("#", ""))}</h2>
+    const message = decodeURIComponent(escape(atob(window.location.hash.replace("#", ""))));
+    container.innerHTML = `<h2>${message}</h2>
     <span class="text-btn" id="return">Create your own secret message</span>`;
     const returnBtn = document.querySelector("#return") as HTMLSpanElement;
     returnBtn.addEventListener("click", renderMain);
@@ -47,7 +48,7 @@ const createMessage = (e: Event) => {
     messageInput.classList.remove("error");
     messageInput.parentNode?.querySelector(".error-msg")?.classList.add("hidden");
     const message = messageInput.value.trim();
-    renderMessageLink(btoa(message));
+    renderMessageLink(btoa(unescape(encodeURIComponent(message))));
 };
 
 form.addEventListener("submit", createMessage);
